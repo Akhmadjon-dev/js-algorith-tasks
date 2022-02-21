@@ -99,5 +99,18 @@ function findMinMax(arr){
     }
 }
 
+// =====
 
-// console.log(findMinMax([3,2,67,4,9,7, 1]))
+function findMinMax1(arr){
+    let result = arr.reduce((acc,cur) => {
+        if(cur < acc.min){
+            acc.min = cur;
+        }
+        if(cur > acc.max){
+            acc.max = cur;
+        }
+    }, {min: arr[0], max: arr[0]});
+    return result;
+}
+
+console.log(findMinMax1([3,2,67,4,9,7, 1]))
