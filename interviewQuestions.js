@@ -131,5 +131,131 @@ function findParenthesis(str){
     return left === right
 }
 
+function isBalanced(str){
+    let stack = [];
+    for (let char of str){
+        if(char === '('){
+            stack.push(char)
+        }else if(stack.pop() !== '('){
+            return false
+        }
+    }
+    return stack.length !== 0 ? false : true
+}
 
-console.log(findParenthesis(' ))((())))asdfa((('))
+
+// console.log(isBalanced(')('))
+
+
+// find the longest word in a string
+
+function findLongestWord(str){
+    let arr = str.split(' ')
+    let longest = 0;
+    for (let word of arr){
+        if(word.length > longest){
+            longest = word.length
+        }
+    }
+    return longest
+}
+
+
+// console.log(findLongestWord('The quick brown fox jumped over the lazy dog'))
+
+
+// write a function that takes a string and returns the number of vowels in the string
+
+function countVowels(str){
+    let arr = str.split('')
+    let count = 0;
+    for (let char of arr){
+        if(/[aeiou]/i.test(char)){
+            count++
+        }
+    }
+    return count
+}
+
+// console.log(countVowels('The quick brown fox jumped over the lazy dog'))
+
+// write a function that takes a string and returns the number of consonants in the string
+
+function countConsonants(str){
+    let arr = str.split('')
+    let count = 0;
+    for (let char of arr){
+        if(/[bcdfghjklmnpqrstvwxyz]/i.test(char)){
+            count++
+        }
+    }
+    return count
+}
+
+// console.log(countConsonants('The quick brown fox jumped over the lazy dog'))
+
+
+// write a function returns unique values form array
+
+function returnUniqueValues1(arr){
+    return new Set([...arr])
+}
+
+function returnUniqueValues2(arr){
+    let result = []
+    for (let item of arr){
+        if(!result.includes(item)){
+            result.push(item)
+        }
+    }
+    return result
+
+}
+
+function returnUniqueValues(arr){
+    return arr.reduce((acc, curr) => {
+        if(!acc.includes(curr)){
+            return acc.push(curr)
+        }
+    }, [])
+}
+
+function returnUniqueValues(arr){
+    let result = []
+    arr.forEach(item => {
+        if(!result.includes(item)){
+            result.push(item)
+        }
+    })
+    return result
+}
+
+// console.log(returnUniqueValues([1,2,34,5,5,2,1,2]))
+
+// write a function that reverse a string
+
+function reverseString1(str){
+    return str.split('').reverse().join('')
+}
+
+function reverseString2(str){
+    let arr = str.split('')
+    let res = []
+    for (let item of arr){
+        res.unshift(item)
+    }
+    return res.join('')
+}
+
+function reverseString(str){
+    let reversedString = ''
+    str.split('').forEach(char => {
+        reversedString = char + reverseString;
+    });
+
+    return reversedString
+}
+
+
+
+// console.log(reverseString('salomM'))
