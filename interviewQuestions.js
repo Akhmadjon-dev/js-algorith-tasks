@@ -113,4 +113,23 @@ function findMinMax1(arr){
     return result;
 }
 
-console.log(findMinMax1([3,2,67,4,9,7, 1]))
+// console.log(findMinMax1([3,2,67,4,9,7, 1]))
+
+// find balanced parenthesis from string
+
+function findParenthesis(str){
+    let left = 0, right = 0;
+    let arr = str.split('')
+    for (let item of arr){
+        if(item === '('){
+            left++
+        }
+        if( item === ')'){
+            right++
+        }
+    }
+    return left === right
+}
+
+
+console.log(findParenthesis(' ))((())))asdfa((('))
