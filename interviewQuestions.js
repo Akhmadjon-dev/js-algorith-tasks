@@ -20,4 +20,84 @@ function isPalindrome(str){
     );
 }
 
-console.log(isPalindrome('racecar'));
+// console.log(isPalindrome('racecar'));
+
+
+// min max finder from array
+
+function findMinMax(arr){
+    let result = {
+        min: arr[0],
+        max: arr[0]
+    }
+    for (let index in arr){
+        if(arr[index] > result.max){
+            result.max = arr[index]
+        }
+        if(arr[index] < result.min){
+            result.min = arr[index]
+        }
+    }
+    return result
+}
+
+
+
+function findMinMax(arr){
+    return {
+        min: Math.min(...arr),
+        max: Math.max(...arr)
+    }
+}
+// =====
+function findMinMax(arr){
+    return {
+        min: arr.reduce((a,b) => a < b ? a : b),
+        max: arr.reduce((a,b) => a > b ? a : b)
+    }
+}
+// =====
+function findMinMax(arr){
+    return {
+        min: arr.reduce((acc, cur) => Math.min(acc, cur)),
+        max: arr.reduce((acc, cur) => Math.max(acc, cur))
+    }
+}
+// ======
+function findMinMax(arr){
+    return arr.reduce(function(acc, curr){
+        acc.min = Math.min(acc.min, curr)
+        acc.max = Math.max(acc.max, curr)
+        return acc
+    }, {min: arr[0], max: arr[0]})
+}
+
+// =======
+
+function findMinMax(arr){
+    return arr.reduce(function(acc, curr){
+        if(curr < acc.min){
+            acc.min = curr
+        }
+        if(curr > acc.max){
+            acc.max = curr
+        }
+        return acc
+    }, {min: arr[0], max: arr[0]})
+}
+
+// =======
+
+function findMinMax(arr){
+    return {
+        min: arr.reduce((min, num) => {
+            return num < min ? num : min;
+        }),
+        max: arr.reduce((max, num) => {
+            return num > max ? num : max;
+        })
+    }
+}
+
+
+// console.log(findMinMax([3,2,67,4,9,7, 1]))
