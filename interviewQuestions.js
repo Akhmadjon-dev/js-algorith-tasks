@@ -100,7 +100,7 @@ function findMinMax(arr){
 }
 
 // =====
-
+// didn't work as acc.min is undefined
 function findMinMax1(arr){
     let result = arr.reduce((acc,cur) => {
         if(cur < acc.min){
