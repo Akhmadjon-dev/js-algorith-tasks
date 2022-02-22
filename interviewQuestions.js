@@ -258,4 +258,53 @@ function reverseString(str){
 
 
 
-// console.log(reverseString('salomM'))
+
+
+// console.log(reverseString('salaomM'))
+
+
+// capitalize each word of sentence
+
+function capitalizer(sen){
+    let words = sen.split(' ')
+    let result = []
+    for (let word of words){
+        let firstCase =  word.charAt(0).toUpperCase()
+        let cases = word.split('')
+        cases.splice(0,1, firstCase)
+        result.push(cases.join(''))
+
+    }
+    return result.join(' ')
+}
+
+function capitalizeWord(item){
+    let words = item.split(' ').map(i => i[0].toUpperCase() + i.slice(1))
+    return words.join(' ')
+}
+
+// console.log(capitalizeWord('salom meni ismim ahmadjon nima gap qalesan'))
+
+function isAnagram(first, second){
+    let main = first.split('').map(i => i.toLowerCase());
+    let compared = second.split('')
+    for (let item of compared){
+        if(!main.includes(item.toLowerCase())){
+            return false
+        }
+    }
+    return true
+}
+
+
+function strIsAnagram(str1, str2){
+    return str1.split('').sort().join('') === str2.split('').sort().join('')
+}
+
+function isAnagram(str1, str2){
+    let main = str1.split('').sort().join('')
+    let compared = str2.split('').sort().join('')
+    return main === compared
+}
+
+console.log(strIsAnagram('Night', 'Thing'))
